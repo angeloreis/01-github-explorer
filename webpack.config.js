@@ -16,11 +16,13 @@ module.exports = {
         extensions: ['.js','.jsx'],
     },
     devServer: { 
-        static : path.resolve(__dirname, 'public'),
-        hot: true
+        static: {
+            directory: path.join(__dirname, 'public')
+        },
+        hot: true,            
     },
     plugins: [
-        !isDevelopment && new ReactRefreshWebpackPlugin(),
+        isDevelopment && new ReactRefreshWebpackPlugin(),
         new HtmlWebPackPlugin({
             template: path.resolve(__dirname,'public','index.html')
         })
@@ -34,7 +36,7 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         plugins: [
-                           isDevelopment && require('react-refresh/babel') 
+                           isDevelopment && require.resolve('react-refresh/babel') 
                         ].filter(Boolean)
                     }
                 },
