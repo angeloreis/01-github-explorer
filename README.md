@@ -2,7 +2,7 @@
 React App - course Ignite - RocketSeat
 
 ### Why?
-This application as cause of use manual config react app.
+This application as case of use manual config react app.
 
 Dep use:
 
